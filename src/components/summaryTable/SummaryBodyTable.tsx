@@ -5,7 +5,7 @@ const SummaryBodyTable = () => {
                 <td className="w-[70px] shrink-0 overflow-ellipsis whitespace-nowrap overflow-hidden">
                     <div className="bg-teal-300 p-2 rounded-full flex justify-center w-[50px] h-[50px]">
                         <img
-                            src="${category.categoryImg}"
+                            src=""
                             alt="${category.categoryName}"
                             width="20"
                             height="20"

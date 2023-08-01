@@ -5,10 +5,8 @@ const ArchiveBodyTable = () => {
                 <td className="w-[55px] shrink-0 overflow-ellipsis whitespace-nowrap overflow-hidden">
                     <div className="bg-teal-300 p-2 rounded-full flex justify-center w-[50px] h-[50px]">
                         <img
-                            src="${category.categoryImg}"
-                            alt="${
-            category.categoryName
-        }"
+                            src=""
+                            alt="category icon"
                             width="20"
                             height="20"
                         />
@@ -28,12 +26,7 @@ const ArchiveBodyTable = () => {
                         className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
                         data-unarchive="${item.recordId}"
                     >
-                        <img
-                            src="${iconUnarchive}"
-                            alt="Icon archive"
-                            width="20"
-                            height="20"
-                        />
+                        <img src="" alt="Icon archive" width="20" height="20" />
                     </button>
                 </td>
             </tr>

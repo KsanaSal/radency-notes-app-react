@@ -5,7 +5,7 @@ const ActiveBodyTable = () => {
                 <td className="w-[55px] shrink-0 overflow-ellipsis whitespace-nowrap overflow-hidden">
                     <div className="bg-teal-300 p-2 rounded-full flex justify-center w-[50px] h-[50px]">
                         <img
-                            src="${category.categoryImg}"
+                            src=""
                             alt="${
             category.categoryName
         }"
@@ -30,7 +30,7 @@ const ActiveBodyTable = () => {
                             data-edit="${item.recordId}"
                         >
                             <img
-                                src="${iconEdit}"
+                                src=""
                                 alt="Icon edit"
                                 width="20"
                                 height="20"
@@ -41,7 +41,7 @@ const ActiveBodyTable = () => {
                             data-archive="${item.recordId}"
                         >
                             <img
-                                src="${iconArchive}"
+                                src=""
                                 alt="Icon archive"
                                 width="20"
                                 height="20"
@@ -52,7 +52,7 @@ const ActiveBodyTable = () => {
                             data-delete="${item.recordId}"
                         >
                             <img
-                                src="${iconDelete}"
+                                src=""
                                 alt="Icon delete"
                                 width="20"
                                 height="20"

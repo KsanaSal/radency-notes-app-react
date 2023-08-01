@@ -12,7 +12,7 @@ const ActiveHeadTable = () => {
                     <div className="flex gap-2 justify-end">
                         <div className="p-2">
                             <img
-                                src="${iconArchive}"
+                                src=""
                                 alt="Icon archive"
                                 width="20"
                                 height="20"
@@ -20,7 +20,7 @@ const ActiveHeadTable = () => {
                         </div>
                         <div className="p-2">
                             <img
-                                src="${iconDelete}"
+                                src=""
                                 alt="Icon delete"
                                 width="20"
                                 height="20"

@@ -1,8 +1,11 @@
+import ArchivedTable from "../components/archivedTable/ArchivedTable";
+
 const ArchivedNotes = () => {
     return (
-        <div>
-            <h1>Archived Notes</h1>
-        </div>
+        <section className="text-gray-800 w-full">
+            <h1 className="text-[40px] font-bold">Active list</h1>
+            <ArchivedTable />
+        </section>
     );
 };
 

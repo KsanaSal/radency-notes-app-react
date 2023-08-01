@@ -1,3 +1,6 @@
+import iconArchived from "../../assets/images/icon-archived.svg";
+import iconDelete from "../../assets/images/icon-delete.svg";
+
 const ActiveHeadTable = () => {
     return (
         <thead>
@@ -12,7 +15,7 @@ const ActiveHeadTable = () => {
                     <div className="flex gap-2 justify-end">
                         <div className="p-2">
                             <img
-                                src=""
+                                src={iconArchived}
                                 alt="Icon archive"
                                 width="20"
                                 height="20"
@@ -20,7 +23,7 @@ const ActiveHeadTable = () => {
                         </div>
                         <div className="p-2">
                             <img
-                                src=""
+                                src={iconDelete}
                                 alt="Icon delete"
                                 width="20"
                                 height="20"

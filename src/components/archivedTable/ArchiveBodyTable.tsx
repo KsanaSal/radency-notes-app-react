@@ -1,3 +1,5 @@
+import iconUnarchived from "../../assets/images/icon-unarchived.svg";
+
 const ArchiveBodyTable = () => {
     return (
         <tbody className="flex flex-col gap-[10px] text-gray-600">
@@ -26,7 +28,12 @@ const ArchiveBodyTable = () => {
                         className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
                         data-unarchive="${item.recordId}"
                     >
-                        <img src="" alt="Icon archive" width="20" height="20" />
+                        <img
+                            src={iconUnarchived}
+                            alt="Icon archive"
+                            width="20"
+                            height="20"
+                        />
                     </button>
                 </td>
             </tr>

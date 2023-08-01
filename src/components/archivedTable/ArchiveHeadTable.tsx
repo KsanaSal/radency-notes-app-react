@@ -1,3 +1,5 @@
+import iconUnarchived from "../../assets/images/icon-unarchived.svg";
+
 const ArchiveHeadTable = () => {
     return (
         <thead>
@@ -10,7 +12,12 @@ const ArchiveHeadTable = () => {
                 <th className="w-[130px] shrink-0">Dates</th>
                 <th className="w-[50px] shrink-0">
                     <div className="p-2">
-                        <img src="" alt="Icon archive" width="20" height="20" />
+                        <img
+                            src={iconUnarchived}
+                            alt="Icon archive"
+                            width="20"
+                            height="20"
+                        />
                     </div>
                 </th>
             </tr>

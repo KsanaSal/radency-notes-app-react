@@ -1,3 +1,7 @@
+import iconArchived from "../../assets/images/icon-archived.svg";
+import iconDelete from "../../assets/images/icon-delete.svg";
+import iconEdit from "../../assets/images/icon-edit.svg";
+
 const ActiveBodyTable = () => {
     return (
         <tbody className="flex flex-col gap-[10px] text-gray-600">
@@ -30,7 +34,7 @@ const ActiveBodyTable = () => {
                             data-edit="${item.recordId}"
                         >
                             <img
-                                src=""
+                                src={iconEdit}
                                 alt="Icon edit"
                                 width="20"
                                 height="20"
@@ -41,7 +45,7 @@ const ActiveBodyTable = () => {
                             data-archive="${item.recordId}"
                         >
                             <img
-                                src=""
+                                src={iconArchived}
                                 alt="Icon archive"
                                 width="20"
                                 height="20"
@@ -52,7 +56,7 @@ const ActiveBodyTable = () => {
                             data-delete="${item.recordId}"
                         >
                             <img
-                                src=""
+                                src={iconDelete}
                                 alt="Icon delete"
                                 width="20"
                                 height="20"

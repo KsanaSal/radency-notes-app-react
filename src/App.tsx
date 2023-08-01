@@ -1,16 +1,12 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import "./App.css";
-import ActiveNotes from "./components/ActiveNotes";
-import ArchivedNotes from "./components/ArchivedNotes";
-import SummeryNotes from "./components/SummeryNotes";
+import ActiveNotes from "./notes/ActiveNotes";
+import ArchivedNotes from "./notes/ArchivedNotes";
+import SummeryNotes from "./notes/SummeryNotes";
 
 function App() {
-    // const [count, setCount] = useState(0)
 
     return (
-        <div>
+        <div className="flex flex-col gap-8 w-full">
             <ActiveNotes />
             <SummeryNotes />
             <ArchivedNotes />

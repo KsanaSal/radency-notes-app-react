@@ -1,7 +1,7 @@
-import iconListCheck from "../../images/icon-list-check.svg";
-import iconIdea from "../../images/icon-idea.svg";
-import iconRandomThought from "../../images/icon-random-thought.svg";
-import iconQuote from "../../images/icon-quote.svg";
+import iconListCheck from "../assets/images/icon-list-check.svg";
+import iconIdea from "../assets/images/icon-idea.svg";
+import iconRandomThought from "../assets/images/icon-random-thought.svg";
+import iconQuote from "../assets/images/icon-quote.svg";
 
 const initData = [
     {

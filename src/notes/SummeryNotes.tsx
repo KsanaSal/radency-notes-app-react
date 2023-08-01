@@ -1,8 +1,11 @@
+import SummaryTable from "../components/summaryTable/SummaryTable";
+
 const SummeryNotes = () => {
     return (
-        <div>
-            <h1>Summery Notes</h1>
-        </div>
+        <section className="text-gray-800 w-full">
+            <h1 className="text-[40px] font-bold">Summary list</h1>
+            <SummaryTable />
+        </section>
     );
 };
 

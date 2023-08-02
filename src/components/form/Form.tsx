@@ -2,12 +2,49 @@ import { useState } from "react";
 import categories from "../../mockData/categoriesData";
 import CancelBtn from "../buttons/CancelBtn";
 import CreateEditBtn from "../buttons/CreateEditBtn";
+import { useDispatch, useSelector } from "react-redux";
+import { selectNotes } from "../../redux/notes/selectorNotes";
+import { setIsShowModal, setNotes } from "../../redux/notes/sliceNotes";
 
-const Form = ({ closeModal }: { closeModal: () => void }) => {
+const Form = () => {
     const [selectCategory, setSelectCategory] = useState("");
+    const notes = useSelector(selectNotes);
+    const dispatch = useDispatch();
+
+    const handleOnCloseModal = () => {
+        dispatch(setIsShowModal(false));
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+
+        const newNote = {
+            categoryId: formData.get("noteCategory"),
+            categoryName: categories.find(
+                (category) =>
+                    category.categoryId === formData.get("noteCategory")
+            )?.categoryName,
+            categoryImg: categories.find(
+                (category) =>
+                    category.categoryId === formData.get("noteCategory")
+            )?.categoryImg,
+            createDate: new Date().toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+            }),
+            content: formData.get("noteContent"),
+            nameTitle: formData.get("noteTitle"),
+            recordId: String(Date.now()),
+            archived: false,
+        };
+        dispatch(setNotes([...notes, newNote]));
+        dispatch(setIsShowModal(false));
+    };
 
     return (
-        <form id="createNoteForm">
+        <form id="createNoteForm" onSubmit={handleSubmit}>
             <div className="mb-4">
                 <label
                     htmlFor="noteTitle"
@@ -67,7 +104,7 @@ const Form = ({ closeModal }: { closeModal: () => void }) => {
                 ></textarea>
             </div>
             <div className="flex justify-end">
-                <CancelBtn handleCloseModal={closeModal} />
+                <CancelBtn handleCloseModal={handleOnCloseModal} />
                 <CreateEditBtn />
             </div>
         </form>

@@ -1,13 +1,15 @@
-import { useState } from "react";
 import ModalWindow from "../components/modalWindow/ModalWindow";
 import ActiveTable from "../components/tables/ActiveTable";
 import CreateNoteBtn from "../components/buttons/CreateNoteBtn";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsShowModal } from "../redux/notes/selectorNotes";
+import { setIsShowModal } from "../redux/notes/sliceNotes";
 
 const ActiveNotes = () => {
-    const [openModal, setOpenModal] = useState(false);
-
+    const isShowModal = useSelector(selectIsShowModal);
+    const dispatch = useDispatch();
     const handleOpenModal = () => {
-        setOpenModal(true);
+        dispatch(setIsShowModal(true));
     };
 
     return (
@@ -15,7 +17,7 @@ const ActiveNotes = () => {
             <h1 className="text-[40px] font-bold text-center">Active list</h1>
             <ActiveTable />
             <CreateNoteBtn handleOpenModal={handleOpenModal} />
-            {openModal && <ModalWindow closeModal={setOpenModal} />}
+            {isShowModal && <ModalWindow />}
         </section>
     );
 };

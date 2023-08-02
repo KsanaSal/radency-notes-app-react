@@ -5,8 +5,6 @@ export interface INotes {
     createDate: string;
     content: string;
     nameTitle: string;
-    mode: string;
     recordId: string;
-    modificationDate: string[];
     archived: boolean;
 }

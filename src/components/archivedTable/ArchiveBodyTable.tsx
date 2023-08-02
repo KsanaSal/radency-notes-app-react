@@ -1,11 +1,23 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import iconUnarchived from "../../assets/images/icon-unarchived.svg";
 import { selectNotes } from "../../redux/notes/selectorNotes";
 import parseDate from "../../utils/parseDate";
+import { setNotes } from "../../redux/notes/sliceNotes";
 
 const ArchiveBodyTable = () => {
     const notes = useSelector(selectNotes);
     const renderedData = notes.filter((item) => item.archived);
+    const dispatch = useDispatch();
+
+    const handleUnarchivedBtnClick = (recordId: string) => {
+        const itemToUpdate = notes.map((item) =>
+            item.recordId === recordId
+                ? { ...item, archived: !item.archived }
+                : item
+        );
+
+        dispatch(setNotes(itemToUpdate));
+    };
 
     return (
         <tbody className="flex flex-col gap-[10px] text-gray-600">
@@ -43,7 +55,9 @@ const ArchiveBodyTable = () => {
                         <td className="flex gap-5 w-[50px] shrink-0">
                             <button
                                 className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                data-unarchive="${item.recordId}"
+                                onClick={() =>
+                                    handleUnarchivedBtnClick(item.recordId)
+                                }
                             >
                                 <img
                                     src={iconUnarchived}

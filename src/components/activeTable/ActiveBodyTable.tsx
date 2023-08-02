@@ -12,16 +12,13 @@ const ActiveBodyTable = () => {
     const renderedData = notes.filter((item) => !item.archived);
 
     const handleDeleteBtnClick = (recordId: string) => {
-        console.log(notes);
-        console.log(recordId);
-        const itemDeleteByIndex = notes.findIndex(
+        const noteDeleteByIndex = notes.findIndex(
             (note) => note.recordId === recordId
         );
-        console.log(itemDeleteByIndex);
-        if (itemDeleteByIndex !== -1) {
-            const t = [...notes];
-            console.log(t);
-            dispatch(setNotes(t.splice(itemDeleteByIndex, 1)));
+        if (noteDeleteByIndex !== -1) {
+            const newListNotes = [...notes];
+            newListNotes.splice(noteDeleteByIndex, 1);
+            dispatch(setNotes(newListNotes));
         }
     };
 
@@ -30,7 +27,13 @@ const ActiveBodyTable = () => {
     };
 
     const handleArchivedBtnClick = (recordId: string) => {
-        console.log(recordId);
+        const itemToUpdate = notes.map((item) =>
+            item.recordId === recordId
+                ? { ...item, archived: !item.archived }
+                : item
+        );
+
+        dispatch(setNotes(itemToUpdate));
     };
 
     return (

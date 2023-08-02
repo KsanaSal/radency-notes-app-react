@@ -13,7 +13,7 @@ const sliceNotes = createSlice({
     reducers: {
         setNotes: (state, action) => ({
             ...state,
-            data: action.payload,
+            notes: action.payload,
         }),
     },
 });

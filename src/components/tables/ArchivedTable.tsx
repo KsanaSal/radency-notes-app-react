@@ -1,5 +1,5 @@
-import ActiveArchiveBodyTable from "./activeArchiveTable/ActiveArchiveBodyTable";
-import ActiveArchiveHeadTable from "./activeArchiveTable/ActiveArchiveHeadTable";
+import ActiveArchiveBodyTable from "../activeArchiveTable/ActiveArchiveBodyTable";
+import ActiveArchiveHeadTable from "../activeArchiveTable/ActiveArchiveHeadTable";
 
 const ArchivedTable = () => {
     return (

@@ -1,4 +1,4 @@
-import ArchivedTable from "../components/ArchivedTable";
+import ArchivedTable from "../components/tables/ArchivedTable";
 
 const ArchivedNotes = () => {
     return (

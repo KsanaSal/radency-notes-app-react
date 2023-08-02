@@ -27,16 +27,16 @@ const ActiveBodyTable = () => {
                                 />
                             </div>
                         </td>
-                        <td className="w-[120px] shrink-0 text-gray-800 text-[18px] font-semibold truncate text-ellipsis white-space: nowrap">
+                        <td className="w-[130px] shrink-0 text-gray-800 text-[18px] font-semibold truncate text-ellipsis white-space: nowrap">
                             {item.nameTitle}
                         </td>
-                        <td className="w-[135px] shrink-0">
+                        <td className="w-[140px] shrink-0">
                             {item.createDate}
                         </td>
                         <td className="w-[130px] shrink-0">
                             {item.categoryName}
                         </td>
-                        <td className="w-[170px] shrink-0 truncate text-ellipsis white-space: nowrap">
+                        <td className="w-[250px] shrink-0 truncate text-ellipsis white-space: nowrap">
                             {item.content}
                         </td>
                         <td className="w-[130px] shrink-0">

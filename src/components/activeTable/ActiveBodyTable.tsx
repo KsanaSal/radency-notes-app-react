@@ -1,13 +1,37 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import iconArchived from "../../assets/images/icon-archived.svg";
 import iconDelete from "../../assets/images/icon-delete.svg";
 import iconEdit from "../../assets/images/icon-edit.svg";
 import { selectNotes } from "../../redux/notes/selectorNotes";
 import parseDate from "../../utils/parseDate";
+import { setNotes } from "../../redux/notes/sliceNotes";
 
 const ActiveBodyTable = () => {
     const notes = useSelector(selectNotes);
+    const dispatch = useDispatch();
     const renderedData = notes.filter((item) => !item.archived);
+
+    const handleDeleteBtnClick = (recordId: string) => {
+        console.log(notes);
+        console.log(recordId);
+        const itemDeleteByIndex = notes.findIndex(
+            (note) => note.recordId === recordId
+        );
+        console.log(itemDeleteByIndex);
+        if (itemDeleteByIndex !== -1) {
+            const t = [...notes];
+            console.log(t);
+            dispatch(setNotes(t.splice(itemDeleteByIndex, 1)));
+        }
+    };
+
+    const handleEditRtnClick = (recordId: string) => {
+        console.log(recordId);
+    };
+
+    const handleArchivedBtnClick = (recordId: string) => {
+        console.log(recordId);
+    };
 
     return (
         <tbody className="flex flex-col gap-[10px] text-gray-600">
@@ -46,7 +70,9 @@ const ActiveBodyTable = () => {
                             <div className="flex gap-2">
                                 <button
                                     className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                    data-edit="${item.recordId}"
+                                    onClick={() =>
+                                        handleEditRtnClick(item.recordId)
+                                    }
                                 >
                                     <img
                                         src={iconEdit}
@@ -57,7 +83,9 @@ const ActiveBodyTable = () => {
                                 </button>
                                 <button
                                     className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                    data-archive="${item.recordId}"
+                                    onClick={() =>
+                                        handleArchivedBtnClick(item.recordId)
+                                    }
                                 >
                                     <img
                                         src={iconArchived}
@@ -68,7 +96,9 @@ const ActiveBodyTable = () => {
                                 </button>
                                 <button
                                     className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                    data-delete="${item.recordId}"
+                                    onClick={() =>
+                                        handleDeleteBtnClick(item.recordId)
+                                    }
                                 >
                                     <img
                                         src={iconDelete}

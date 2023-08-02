@@ -2,14 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import iconArchived from "../../assets/images/icon-archived.svg";
 import iconDelete from "../../assets/images/icon-delete.svg";
 import iconEdit from "../../assets/images/icon-edit.svg";
+import iconUnarchived from "../../assets/images/icon-unarchived.svg";
 import { selectNotes } from "../../redux/notes/selectorNotes";
 import parseDate from "../../utils/parseDate";
 import { setNotes } from "../../redux/notes/sliceNotes";
 
-const ActiveBodyTable = () => {
+const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
+    const isActive = type === "active";
     const notes = useSelector(selectNotes);
     const dispatch = useDispatch();
-    const renderedData = notes.filter((item) => !item.archived);
+    const renderedData = isActive
+        ? notes.filter((item) => !item.archived)
+        : notes.filter((item) => item.archived);
 
     const handleDeleteBtnClick = (recordId: string) => {
         const noteDeleteByIndex = notes.findIndex(
@@ -26,7 +30,7 @@ const ActiveBodyTable = () => {
         console.log(recordId);
     };
 
-    const handleArchivedBtnClick = (recordId: string) => {
+    const handleArchUnarchBtnClick = (recordId: string) => {
         const itemToUpdate = notes.map((item) =>
             item.recordId === recordId
                 ? { ...item, archived: !item.archived }
@@ -69,48 +73,70 @@ const ActiveBodyTable = () => {
                         <td className="w-[130px] shrink-0">
                             {parseDate(item.content)}
                         </td>
-                        <td className="flex gap-5 w-[130px] shrink-0">
-                            <div className="flex gap-2">
+                        <td
+                            className={`flex gap-5 ${
+                                isActive ? "w-[130px]" : "w-[50px]"
+                            } shrink-0`}
+                        >
+                            {isActive ? (
+                                <div className="flex gap-2">
+                                    <button
+                                        className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
+                                        onClick={() =>
+                                            handleEditRtnClick(item.recordId)
+                                        }
+                                    >
+                                        <img
+                                            src={iconEdit}
+                                            alt="Icon edit"
+                                            width="20"
+                                            height="20"
+                                        />
+                                    </button>
+                                    <button
+                                        className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
+                                        onClick={() =>
+                                            handleArchUnarchBtnClick(
+                                                item.recordId
+                                            )
+                                        }
+                                    >
+                                        <img
+                                            src={iconArchived}
+                                            alt="Icon archive"
+                                            width="20"
+                                            height="20"
+                                        />
+                                    </button>
+                                    <button
+                                        className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
+                                        onClick={() =>
+                                            handleDeleteBtnClick(item.recordId)
+                                        }
+                                    >
+                                        <img
+                                            src={iconDelete}
+                                            alt="Icon delete"
+                                            width="20"
+                                            height="20"
+                                        />
+                                    </button>
+                                </div>
+                            ) : (
                                 <button
                                     className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
                                     onClick={() =>
-                                        handleEditRtnClick(item.recordId)
+                                        handleArchUnarchBtnClick(item.recordId)
                                     }
                                 >
                                     <img
-                                        src={iconEdit}
-                                        alt="Icon edit"
-                                        width="20"
-                                        height="20"
-                                    />
-                                </button>
-                                <button
-                                    className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                    onClick={() =>
-                                        handleArchivedBtnClick(item.recordId)
-                                    }
-                                >
-                                    <img
-                                        src={iconArchived}
+                                        src={iconUnarchived}
                                         alt="Icon archive"
                                         width="20"
                                         height="20"
                                     />
                                 </button>
-                                <button
-                                    className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
-                                    onClick={() =>
-                                        handleDeleteBtnClick(item.recordId)
-                                    }
-                                >
-                                    <img
-                                        src={iconDelete}
-                                        alt="Icon delete"
-                                        width="20"
-                                        height="20"
-                                    />
-                                </button>
-                            </div>
+                            )}
                         </td>
                     </tr>
                 ))}
@@ -118,4 +144,4 @@ const ActiveBodyTable = () => {
     );
 };
 
-export default ActiveBodyTable;
+export default ActiveArchiveBodyTable;

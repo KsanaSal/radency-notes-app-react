@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import ActiveTable from "../components/activeTable/ActiveTable";
+import ActiveTable from "../components/ActiveTable";
 
 const ActiveNotes = () => {
     return (

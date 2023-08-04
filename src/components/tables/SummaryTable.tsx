@@ -1,5 +1,5 @@
-import SummaryBodyTable from "./SummaryBodyTable";
-import SummaryHeadTable from "./SummaryHeadTable";
+import SummaryBodyTable from "../summaryTable/SummaryBodyTable";
+import SummaryHeadTable from "../summaryTable/SummaryHeadTable";
 
 const SummaryTable = () => {
     return (

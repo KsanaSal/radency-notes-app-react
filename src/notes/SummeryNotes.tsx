@@ -1,4 +1,4 @@
-import SummaryTable from "../components/summaryTable/SummaryTable";
+import SummaryTable from "../components/tables/SummaryTable";
 
 const SummeryNotes = () => {
     return (

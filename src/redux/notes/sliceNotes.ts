@@ -3,7 +3,8 @@ import initData from "../../mockData/initData";
 
 const initialState = {
     notes: initData,
-    loading: false,
+    currentNoteId: "",
+    isShowModal: false,
     error: null,
 };
 
@@ -13,11 +14,20 @@ const sliceNotes = createSlice({
     reducers: {
         setNotes: (state, action) => ({
             ...state,
-            data: action.payload,
+            notes: action.payload,
+        }),
+        setIsShowModal: (state, action) => ({
+            ...state,
+            isShowModal: action.payload,
+        }),
+
+        setCurrentNoteId: (state, action) => ({
+            ...state,
+            currentNoteId: action.payload,
         }),
     },
 });
 
-export const { setNotes } = sliceNotes.actions;
+export const { setNotes, setIsShowModal, setCurrentNoteId } = sliceNotes.actions;
 
 export default sliceNotes.reducer;

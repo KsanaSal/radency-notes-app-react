@@ -5,3 +5,7 @@ export const selectNotes = (state: { notes: { notes: INotes[] } }) =>
 
 export const selectIsShowModal = (state: { notes: { isShowModal: boolean } }) =>
     state.notes.isShowModal;
+
+export const selectCurrentNoteId = (state: {
+    notes: { currentNoteId: string };
+}) => state.notes.currentNoteId;

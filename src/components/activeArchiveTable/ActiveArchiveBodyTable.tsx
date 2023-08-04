@@ -5,7 +5,11 @@ import iconEdit from "../../assets/images/icon-edit.svg";
 import iconUnarchived from "../../assets/images/icon-unarchived.svg";
 import { selectNotes } from "../../redux/notes/selectorNotes";
 import parseDate from "../../utils/parseDate";
-import { setNotes } from "../../redux/notes/sliceNotes";
+import {
+    setCurrentNoteId,
+    setIsShowModal,
+    setNotes,
+} from "../../redux/notes/sliceNotes";
 
 const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
     const isActive = type === "active";
@@ -26,8 +30,9 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
         }
     };
 
-    const handleEditRtnClick = (recordId: string) => {
-        console.log(recordId);
+    const handleEditBtnClick = (recordId: string) => {
+        dispatch(setCurrentNoteId(recordId));
+        dispatch(setIsShowModal(true));
     };
 
     const handleArchUnarchBtnClick = (recordId: string) => {
@@ -83,7 +88,7 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
                                     <button
                                         className="hover:shadow-md p-2 hover:bg-teal-100 rounded-[4px]"
                                         onClick={() =>
-                                            handleEditRtnClick(item.recordId)
+                                            handleEditBtnClick(item.recordId)
                                         }
                                     >
                                         <img

@@ -1,19 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import categories from "../../mockData/categoriesData";
 import CancelBtn from "../buttons/CancelBtn";
 import CreateEditBtn from "../buttons/CreateEditBtn";
 import { useDispatch, useSelector } from "react-redux";
-import { selectNotes } from "../../redux/notes/selectorNotes";
-import { setIsShowModal, setNotes } from "../../redux/notes/sliceNotes";
+import {
+    selectCurrentNoteId,
+    selectNotes,
+} from "../../redux/notes/selectorNotes";
+import {
+    setCurrentNoteId,
+    setIsShowModal,
+    setNotes,
+} from "../../redux/notes/sliceNotes";
 
 const Form = () => {
     const [selectCategory, setSelectCategory] = useState("");
     const notes = useSelector(selectNotes);
+    const noteId = useSelector(selectCurrentNoteId);
+    const currentNote = notes.find((note) => note.recordId === noteId);
     const dispatch = useDispatch();
-
     const handleOnCloseModal = () => {
         dispatch(setIsShowModal(false));
+        dispatch(setCurrentNoteId(""));
     };
+
+    useEffect(() => {
+        currentNote && setSelectCategory(currentNote?.categoryName);
+    }, [currentNote]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,11 +49,20 @@ const Form = () => {
             }),
             content: formData.get("noteContent"),
             nameTitle: formData.get("noteTitle"),
-            recordId: String(Date.now()),
+            recordId: noteId || String(Date.now()),
             archived: false,
         };
-        dispatch(setNotes([...notes, newNote]));
+
+        const newNotes = notes.map((note) => {
+            if (note.recordId === newNote.recordId) {
+                return newNote;
+            }
+            return note;
+        });
+
+        dispatch(setNotes(noteId ? newNotes : [...notes, newNote]));
         dispatch(setIsShowModal(false));
+        dispatch(setCurrentNoteId(""));
     };
 
     return (
@@ -57,6 +79,7 @@ const Form = () => {
                     id="noteTitle"
                     name="noteTitle"
                     className="w-full text-[18px] border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-teal-500"
+                    defaultValue={currentNote?.nameTitle || ""}
                     required
                 />
             </div>
@@ -100,6 +123,7 @@ const Form = () => {
                     name="noteContent"
                     rows={4}
                     className="w-full text-[18px] border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-teal-500"
+                    defaultValue={currentNote?.content || ""}
                     required
                 ></textarea>
             </div>

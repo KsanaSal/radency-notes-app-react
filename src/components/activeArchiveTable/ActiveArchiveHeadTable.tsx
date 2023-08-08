@@ -38,8 +38,6 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
                                     className="w-[16px] md:w-[18px] lg:w-[20px] h-[16px] md:h-[18px] lg:h-[20px]"
                                     src={iconArchived}
                                     alt="Icon archive"
-                                    // width="20"
-                                    // height="20"
                                 />
                             </div>
                             <div className="p-1 md:p-2">
@@ -47,8 +45,6 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
                                     className="w-[16px] md:w-[18px] lg:w-[20px] h-[16px] md:h-[18px] lg:h-[20px]"
                                     src={iconDelete}
                                     alt="Icon delete"
-                                    // width="20"
-                                    // height="20"
                                 />
                             </div>
                         </div>
@@ -58,8 +54,6 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
                                 className="w-[16px] md:w-[18px] lg:w-[20px] h-[16px] md:h-[18px] lg:h-[20px]"
                                 src={iconUnarchived}
                                 alt="Icon archive"
-                                // width="20"
-                                // height="20"
                             />
                         </div>
                     )}

@@ -20,8 +20,6 @@ const SummaryBodyTable = () => {
                                     className="w-[16px] md:w-[18px] lg:w-[20px] h-[16px] md:h-[18px] lg:h-[20px]"
                                     src={category.categoryImg}
                                     alt={category.categoryName}
-                                    // width="20"
-                                    // height="20"
                                 />
                             </div>
                         </td>

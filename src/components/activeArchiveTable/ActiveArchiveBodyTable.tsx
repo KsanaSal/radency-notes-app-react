@@ -63,16 +63,16 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
                                 />
                             </div>
                         </td>
-                        <td className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0 text-gray-800 text-[14px] sm:text-[16px] lg:text-[18px] font-semibold truncate text-ellipsis white-space: nowrap">
+                        <td className="w-[50px] md:w-[100px] lg:w-[130px] shrink-0 text-gray-800 text-[14px] sm:text-[16px] lg:text-[18px] font-semibold truncate text-ellipsis white-space: nowrap">
                             {item.nameTitle}
                         </td>
-                        <td className="w-[80px] md:[110px] lg:w-[140px] shrink-0">
+                        <td className="w-[60px] md:[110px] lg:w-[140px] shrink-0">
                             {item.createDate}
                         </td>
-                        <td className="w-[80px] md:w-[100px] lg:w-[130px] shrink-0">
+                        <td className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
                             {item.categoryName}
                         </td>
-                        <td className="w-[130px] md:w-[200px] lg:w-[250px] shrink-0 truncate text-ellipsis white-space: nowrap">
+                        <td className="w-[90px] md:w-[200px] lg:w-[250px] shrink-0 truncate text-ellipsis white-space: nowrap">
                             {item.content}
                         </td>
                         <td className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
@@ -81,7 +81,7 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
                         <td
                             className={`flex gap-5 ${
                                 isActive
-                                    ? "w-[80px] md:w-[100px] lg:w-[130px]"
+                                    ? "w-[70px] md:w-[100px] lg:w-[130px]"
                                     : "w-[30px] md:w-[40px] lg:w-[50px]"
                             } shrink-0`}
                         >

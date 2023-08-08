@@ -8,9 +8,10 @@ import {
     selectNotes,
 } from "../../redux/notes/selectorNotes";
 import {
+    setCreateNotes,
     setCurrentNoteId,
+    setEditNotes,
     setIsShowModal,
-    setNotes,
 } from "../../redux/notes/sliceNotes";
 
 const Form = () => {
@@ -60,17 +61,21 @@ const Form = () => {
             return note;
         });
 
-        dispatch(setNotes(noteId ? newNotes : [...notes, newNote]));
+        dispatch(
+            noteId
+                ? setEditNotes(newNotes)
+                : setCreateNotes([...notes, newNote])
+        );
         dispatch(setIsShowModal(false));
         dispatch(setCurrentNoteId(""));
     };
 
     return (
         <form id="createNoteForm" onSubmit={handleSubmit}>
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4 lg:mb-5">
                 <label
                     htmlFor="noteTitle"
-                    className="block font-semibold text-[20px]"
+                    className="block font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
                 >
                     Title:
                 </label>
@@ -78,22 +83,22 @@ const Form = () => {
                     type="text"
                     id="noteTitle"
                     name="noteTitle"
-                    className="w-full text-[18px] border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-teal-500"
+                    className="w-full text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] border border-gray-300 rounded-md px-2 md:px-3 py-1 md:py-2 focus:outline-none focus:border-teal-500"
                     defaultValue={currentNote?.nameTitle || ""}
                     required
                 />
             </div>
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4 lg:mb-5">
                 <label
                     htmlFor="noteCategory"
-                    className="block font-semibold text-[20px]"
+                    className="block font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
                 >
                     Category:
                 </label>
                 <select
                     id="noteCategory"
                     name="noteCategory"
-                    className="w-full text-[18px] text-teal-800 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-teal-500"
+                    className="w-full text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-teal-800 border border-gray-300 rounded-md px-2 md:px-3 py-1 md:py-2 focus:outline-none focus:border-teal-500"
                     required
                     value={selectCategory}
                     onChange={(e) => setSelectCategory(e.target.value)}
@@ -111,10 +116,10 @@ const Form = () => {
                     ))}
                 </select>
             </div>
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4 lg:mb-5">
                 <label
                     htmlFor="noteContent"
-                    className="block font-semibold text-[20px]"
+                    className="block font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
                 >
                     Content:
                 </label>
@@ -122,7 +127,7 @@ const Form = () => {
                     id="noteContent"
                     name="noteContent"
                     rows={4}
-                    className="w-full text-[18px] border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-teal-500"
+                    className="w-full text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] border border-gray-300 rounded-md px-2 md:px-3 py-1 md:py-2 focus:outline-none focus:border-teal-500"
                     defaultValue={currentNote?.content || ""}
                     required
                 ></textarea>

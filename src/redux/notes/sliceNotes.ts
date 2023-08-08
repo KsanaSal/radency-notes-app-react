@@ -16,6 +16,22 @@ const sliceNotes = createSlice({
             ...state,
             notes: action.payload,
         }),
+
+        setDeleteNotes: (state, action) => ({
+            ...state,
+            notes: action.payload,
+        }),
+
+        setCreateNotes: (state, action) => ({
+            ...state,
+            notes: action.payload,
+        }),
+
+        setEditNotes: (state, action) => ({
+            ...state,
+            notes: action.payload,
+        }),
+
         setIsShowModal: (state, action) => ({
             ...state,
             isShowModal: action.payload,
@@ -28,6 +44,13 @@ const sliceNotes = createSlice({
     },
 });
 
-export const { setNotes, setIsShowModal, setCurrentNoteId } = sliceNotes.actions;
+export const {
+    setNotes,
+    setIsShowModal,
+    setCurrentNoteId,
+    setDeleteNotes,
+    setCreateNotes,
+    setEditNotes,
+} = sliceNotes.actions;
 
 export default sliceNotes.reducer;

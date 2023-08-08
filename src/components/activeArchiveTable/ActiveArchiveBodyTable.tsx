@@ -7,8 +7,9 @@ import { selectNotes } from "../../redux/notes/selectorNotes";
 import parseDate from "../../utils/parseDate";
 import {
     setCurrentNoteId,
+    setDeleteNotes,
+    setEditNotes,
     setIsShowModal,
-    setNotes,
 } from "../../redux/notes/sliceNotes";
 
 const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
@@ -26,7 +27,7 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
         if (noteDeleteByIndex !== -1) {
             const newListNotes = [...notes];
             newListNotes.splice(noteDeleteByIndex, 1);
-            dispatch(setNotes(newListNotes));
+            dispatch(setDeleteNotes(newListNotes));
         }
     };
 
@@ -42,7 +43,7 @@ const ActiveArchiveBodyTable = ({ type }: { type: "active" | "archived" }) => {
                 : item
         );
 
-        dispatch(setNotes(itemToUpdate));
+        dispatch(setEditNotes(itemToUpdate));
     };
 
     return (

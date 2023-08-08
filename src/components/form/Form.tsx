@@ -8,9 +8,10 @@ import {
     selectNotes,
 } from "../../redux/notes/selectorNotes";
 import {
+    setCreateNotes,
     setCurrentNoteId,
+    setEditNotes,
     setIsShowModal,
-    setNotes,
 } from "../../redux/notes/sliceNotes";
 
 const Form = () => {
@@ -60,7 +61,11 @@ const Form = () => {
             return note;
         });
 
-        dispatch(setNotes(noteId ? newNotes : [...notes, newNote]));
+        dispatch(
+            noteId
+                ? setEditNotes(newNotes)
+                : setCreateNotes([...notes, newNote])
+        );
         dispatch(setIsShowModal(false));
         dispatch(setCurrentNoteId(""));
     };

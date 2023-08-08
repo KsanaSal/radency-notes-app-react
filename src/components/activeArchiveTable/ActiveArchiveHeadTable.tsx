@@ -14,10 +14,10 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
                 <th className="w-[80px] md:[110px] lg:w-[140px] shrink-0">
                     Created
                 </th>
-                <th className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
+                <th className="w-[80px] md:w-[100px] lg:w-[130px] shrink-0">
                     Category
                 </th>
-                <th className="w-[150px] md:w-[200px] lg:w-[250px] shrink-0">
+                <th className="w-[130px] md:w-[200px] lg:w-[250px] shrink-0">
                     Content
                 </th>
                 <th className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
@@ -26,7 +26,7 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
                 <th
                     className={`${
                         isActive
-                            ? "w-[70px] md:w-[100px] lg:w-[130px]"
+                            ? "w-[80px] md:w-[100px] lg:w-[130px]"
                             : "w-[30px] md:w-[40px] lg:w-[50px]"
                     } shrink-0`}
                 >

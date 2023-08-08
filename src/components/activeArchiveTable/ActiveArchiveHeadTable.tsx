@@ -6,21 +6,21 @@ const ActiveArchiveHeadTable = ({ type }: { type: "active" | "archived" }) => {
     const isActive = type === "active";
     return (
         <thead>
-            <tr className=" flex justify-between text-left text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-semibold py-4 px-2 bg-teal-200 border border-teal-700 rounded-[4px] overflow-hidden shadow-sm hover:shadow-md">
+            <tr className=" flex justify-between text-left text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-semibold py-4 px-2 bg-teal-200 border border-teal-700 rounded-[4px] overflow-hidden shadow-sm hover:shadow-md">
                 <th className="w-[30px] md:w-[40px] lg:w-[55px] shrink-0"></th>
-                <th className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
+                <th className="w-[50px] md:w-[100px] lg:w-[130px] shrink-0">
                     Name
                 </th>
-                <th className="w-[80px] md:[110px] lg:w-[140px] shrink-0">
+                <th className="w-[60px] md:[110px] lg:w-[140px] shrink-0">
                     Created
                 </th>
-                <th className="w-[80px] md:w-[100px] lg:w-[130px] shrink-0">
+                <th className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
                     Category
                 </th>
-                <th className="w-[130px] md:w-[200px] lg:w-[250px] shrink-0">
+                <th className="w-[90px] md:w-[200px] lg:w-[250px] shrink-0">
                     Content
                 </th>
-                <th className="w-[70px] md:w-[100px] lg:w-[130px] shrink-0">
+                <th className="w-[60px] md:w-[100px] lg:w-[130px] shrink-0">
                     Dates
                 </th>
                 <th

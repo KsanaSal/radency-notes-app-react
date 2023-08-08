@@ -23,17 +23,17 @@ const SummaryBodyTable = () => {
                                 />
                             </div>
                         </td>
-                        <td className="w-[250px] md:w-[450px] lg:w-[550px] shrink-0 text-gray-800 font-semibold text-[14px] sm:text-[16px] lg:text-[18px]">
+                        <td className="w-[200px] md:w-[450px] lg:w-[550px] shrink-0 text-gray-800 font-semibold text-[14px] sm:text-[16px] lg:text-[18px]">
                             {category.categoryName}
                         </td>
-                        <td className="w-[100px] md:w-[170px] lg:w-[270px] shrink-0">
+                        <td className="w-[90px] md:w-[170px] lg:w-[270px] shrink-0">
                             {countNotesCategory(
                                 category.categoryId,
                                 false,
                                 notes
                             )}
                         </td>
-                        <td className="w-[100px] md:w-[170px] lg:w-[270px] shrink-0">
+                        <td className="w-[90px] md:w-[170px] lg:w-[270px] shrink-0">
                             {countNotesCategory(
                                 category.categoryId,
                                 true,
